@@ -1,0 +1,3 @@
+- insert:
+    - id: biodata-search
+      name: dsh-plugin-biodata-search

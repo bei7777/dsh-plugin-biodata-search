@@ -1,0 +1,3 @@
+- insert:
+    - id: biodata-search-live-check
+      name: ./probe.mjs
