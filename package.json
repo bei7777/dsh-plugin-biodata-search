@@ -1,19 +1,19 @@
 {
   "name": "dsh-plugin-biodata-search",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Search biological databases and retrieve cited records by identifier in DeepSeek Harness.",
   "repository": { "type": "git", "url": "https://github.com/bei7777/dsh-plugin-biodata-search.git" },
   "homepage": "https://github.com/bei7777/dsh-plugin-biodata-search#readme",
   "license": "UNLICENSED",
   "type": "module",
-  "main": "./index.js",
   "exports": {
-    ".": "./index.js",
+    "./launcher.mjs": "./launcher.mjs",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
   "files": [
-    "index.js",
+    "launcher.mjs",
+    "proxy-env.mjs",
     "cordis.patch.yml",
     "backend/biodata_search_mcp-0.2.0-py3-none-any.whl",
     "README.md"
@@ -26,11 +26,10 @@
       "displayName": "BioData Search",
       "summary": "Search NGDC, NCBI, Europe PMC, UniProt and RCSB PDB with selectable sources and original record links.",
       "entryIds": ["biodata-search"],
-      "compatibility": { "dsh": ">=0.2.2-rc.5 <0.3.0", "node": ">=24.9.0" }
+      "compatibility": { "dsh": ">=0.2.2-rc.5", "node": ">=24.9.0" }
     }
   },
-  "engines": { "node": ">=24.9.0", "dsh": ">=0.2.2-rc.5 <0.3.0" },
-  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.5 <0.3.0" },
+  "engines": { "node": ">=24.9.0", "dsh": ">=0.2.2-rc.5" },
   "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
-  "scripts": { "prepack": "node scripts/bundle-wheel.mjs" }
+  "scripts": { "prepack": "node scripts/bundle-wheel.mjs", "test": "node --test tests/startup.test.mjs" }
 }

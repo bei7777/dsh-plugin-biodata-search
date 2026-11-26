@@ -1,3 +1,13 @@
 - insert:
     - id: biodata-search
-      name: dsh-plugin-biodata-search
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: biodata
+        transport: stdio
+        command: !!js process.execPath
+        args:
+          - !!js process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-plugin-biodata-search/launcher.mjs')
+        env:
+          ELECTRON_RUN_AS_NODE: '1'
+        toolCallTimeoutMs: 300000
+        failOnStartupError: true
