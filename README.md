@@ -32,7 +32,7 @@ npm 安装前，使用官方 registry 检查版本已经发布。
 npm view dsh-plugin-biodata-search@0.2.1 version --registry=https://registry.npmjs.org/
 ```
 
-只有返回 `0.2.1` 后，才使用 `dsh plugin --profile desktop add dsh-plugin-biodata-search@0.2.1`。返回 404 或仅列出 `0.0.0-stage` 表示发布审批尚未完成，请使用上面的 GitHub 版本地址。
+只有返回 `0.2.1` 后，才使用 `dsh plugin --profile desktop add dsh-plugin-biodata-search@0.2.1`。返回 404 或仅列出 `0.0.0-stage` 表示该版本尚未公开发布，请使用上面的 GitHub 版本地址。
 
 DSH 进程的 `PATH` 需要包含 `uvx`。桌面 App 从 Finder 启动时可能使用不同的环境，可以在 BioData Search 的 MCP 配置 `env` 中设置 `BIODATA_SEARCH_UVX`，值为 `uvx` 的绝对路径，例如 `/Users/你的用户名/.local/bin/uvx`。如果已经安装 Python 后端 0.2.0，可以设置 `BIODATA_SEARCH_EXECUTABLE` 为后端可执行文件的绝对路径。启动失败会报告缺失程序及配置方法。
 
